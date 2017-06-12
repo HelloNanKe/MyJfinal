@@ -135,9 +135,15 @@
                 </div>
                 <%--右侧开始--%>
                 <div class="span8">
-                    <%--MD编辑器开始--%>
-                    <div id="layout">
-                        <div id="test-editormd">
+<%--表单开始--%>
+                    <form class="form-horizontal" action="/save1" method="post">
+                        <fieldset>
+                            <div id="legend" class="">
+                                <input type="text" placeholder="输入一个标题呗" class="input-xxlarge" name="title">
+                            </div>
+                            <%--MD编辑器开始--%>
+                            <div id="layout">
+                                <div id="test-editormd">
  <textarea style="display:none;">[TOC]
 #### Disabled options
 
@@ -170,27 +176,46 @@
 &lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
 ```
 </textarea>
-                        </div>
-                    </div>
-                    <script src="<%=request.getContextPath()%>/MDEditor/editor/js/jquery.min.js"></script>
-                    <script src="<%=request.getContextPath()%>/MDEditor/editor/js/editormd.min.js"></script>
+                                </div>
+                            </div>
+                            <script src="<%=request.getContextPath()%>/MDEditor/editor/js/jquery.min.js"></script>
+                            <script src="<%=request.getContextPath()%>/MDEditor/editor/js/editormd.min.js"></script>
 
-                    <script type="text/javascript">
-                        var testEditor;
-                        $(function () {
-                            testEditor = editormd("test-editormd", {
-                                width: "90%",
-                                height: '80%',
-                                syncScrolling: "single",
-                                path: "<%=request.getContextPath()%>/MDEditor/lib/",
-                                previewTheme: "dark"
-                            });
-                        });
-                    </script>
-                    <%--Md编辑器结束--%>
+                            <script type="text/javascript">
+                                var testEditor;
+                                $(function () {
+                                    testEditor = editormd("test-editormd", {
+                                        width: "90%",
+                                        height: '80%',
+                                        syncScrolling: "single",
+                                        path: "<%=request.getContextPath()%>/MDEditor/lib/",
+                                        previewTheme: "dark"
+                                    });
+                                });
+
+                                var blogcontent = testEditor.getPreviewedHTML();// 获取预览窗口里的 HTML，在开启 watch 且没有开启 saveHTMLToTextarea 时使用
+
+
+                            </script>
+
+                            <%--Md编辑器结束--%>
+
+                            <input type="hidden" name="htmlCode" value="<script>blogcontent</script>">
+                            <div class="control-group">
+                                <label class="control-label"></label>
+
+                                <!-- Button -->
+                                <div class="controls">
+                                    <button class="btn btn-success">保存</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </form>
+<%--表单结束--%>
                 </div>
             </div>
-
 
             <%--底部footer--%>
             <div class="alert">
