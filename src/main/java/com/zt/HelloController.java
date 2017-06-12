@@ -7,7 +7,7 @@ import com.jfinal.core.Controller;
 public class HelloController extends Controller {
 
     public void index() {
-        renderText("Hello JFinal World.");
+        renderJsp("/MDEditor/editor/editor.jsp");
     }
     public void test(){
         render("/index.jsp");
