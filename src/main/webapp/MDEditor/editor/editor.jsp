@@ -4,9 +4,9 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8" />
-    <title>Simple example - Editor.md examples</title>
+    <title>Personal Blog</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/MDEditor/editor/css/style.css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/MDEditor/css/editormd.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/MDEditor/css/editormd.min.css" />
     <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
 </head>
 <body>
@@ -60,7 +60,8 @@
             width   : "90%",
             height  : 640,
             syncScrolling : "single",
-            path    : "<%=request.getContextPath()%>/MDEditor/lib/"
+            path    : "<%=request.getContextPath()%>/MDEditor/lib/",
+            previewTheme : "dark"
         });
 
         /*
