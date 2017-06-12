@@ -12,6 +12,6 @@ public class HelloController extends Controller {
         renderJsp("/MDEditor/editor/editor.jsp");
     }
     public void test(){
-        render("/index.jsp");
+        renderJsp("/index.jsp");
     }
 }
